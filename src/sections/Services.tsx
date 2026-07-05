@@ -109,10 +109,10 @@ export default function Process() {
               animate="center"
               exit="exit"
               transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
-              className="aged-paper burned-edges rounded-sm p-10 lg:p-14 max-w-[700px] mx-auto relative"
+              className="aged-paper burned-edges rounded-sm p-10 lg:p-12 max-w-[520px] mx-auto relative"
               style={{ transform: `rotate(${current % 2 === 0 ? 0.5 : -0.5}deg)` }}
             >
-              {/* Number — absolutely positioned at top, NO overlap possible */}
+              {/* Number — absolutely positioned at top */}
               <span
                 className="font-serif text-[72px] lg:text-[90px] font-medium text-[#8B4513] opacity-30 leading-none block absolute top-2 left-8 lg:left-10 pointer-events-none select-none"
                 aria-hidden="true"
@@ -120,7 +120,7 @@ export default function Process() {
                 {step.number}
               </span>
 
-              {/* Title — pushed down with padding to clear the absolute number */}
+              {/* Title — pushed down with padding to clear the number */}
               <h3 className="font-serif text-[30px] lg:text-[36px] font-medium text-[#2C2420] leading-[1.1] pt-20 lg:pt-24 relative z-[1]">
                 {step.title}
               </h3>
