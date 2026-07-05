@@ -1,149 +1,134 @@
-import { useState, useCallback } from 'react';
+import { useRef } from 'react';
 import { useI18n } from '@/context/I18nContext';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { motion, useInView } from 'framer-motion';
+import { Mic, Globe, FileText } from 'lucide-react';
 
-export default function Process() {
+const iconMap: Record<string, React.ReactNode> = {
+  Mic: <Mic size={40} strokeWidth={1} />,
+  Globe: <Globe size={40} strokeWidth={1} />,
+  FileText: <FileText size={40} strokeWidth={1} />,
+};
+
+export default function Services() {
   const { t } = useI18n();
-  const [current, setCurrent] = useState(0);
-  const [direction, setDirection] = useState(1);
-
-  const goTo = useCallback(
-    (index: number) => {
-      setDirection(index > current ? 1 : -1);
-      setCurrent(index);
-    },
-    [current]
-  );
-
-  const next = useCallback(() => {
-    setDirection(1);
-    setCurrent((prev) => (prev + 1) % t.process.steps.length);
-  }, [t.process.steps.length]);
-
-  const prev = useCallback(() => {
-    setDirection(-1);
-    setCurrent((prev) => (prev - 1 + t.process.steps.length) % t.process.steps.length);
-  }, [t.process.steps.length]);
-
-  const slideVariants = {
-    enter: (dir: number) => ({ x: dir > 0 ? 120 : -120, opacity: 0 }),
-    center: { x: 0, opacity: 1 },
-    exit: (dir: number) => ({ x: dir > 0 ? -120 : 120, opacity: 0 }),
-  };
-
-  const step = t.process.steps[current];
+  const sectionRef = useRef<HTMLElement>(null);
+  const isInView = useInView(sectionRef, { once: true, amount: 0.15 });
 
   return (
     <section
+      ref={sectionRef}
+      id="services"
       className="relative min-h-screen py-24 lg:py-32 overflow-hidden"
       style={{
-        backgroundImage: `url('/images/bg-process.jpg')`,
+        backgroundImage: `url('/images/bg-services.jpg')`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
       }}
     >
-      <div className="absolute inset-0 bg-gradient-to-b from-[rgba(28,20,16,0.6)] via-[rgba(28,20,16,0.4)] to-[rgba(28,20,16,0.6)]" />
+      {/* Warm overlay for text readability */}
+      <div className="absolute inset-0 bg-gradient-to-r from-[rgba(28,20,16,0.7)] via-[rgba(28,20,16,0.4)] to-[rgba(28,20,16,0.6)]" />
 
+      {/* Candle decoration */}
       <motion.img
         initial={{ opacity: 0 }}
-        whileInView={{ opacity: 0.4 }}
-        viewport={{ once: true }}
-        transition={{ delay: 0.4, duration: 1 }}
-        src="/images/deco-pen.png"
+        animate={isInView ? { opacity: 0.6 } : {}}
+        transition={{ delay: 0.3, duration: 1 }}
+        src="/images/deco-candle.png"
         alt=""
-        className="absolute bottom-20 right-12 z-[3] w-24 h-auto pointer-events-none hidden lg:block rotate-45"
+        className="absolute top-8 right-12 z-[3] w-20 h-auto candle-flicker pointer-events-none hidden lg:block"
+      />
+
+      {/* Compass decoration */}
+      <motion.img
+        initial={{ opacity: 0, rotate: -20 }}
+        animate={isInView ? { opacity: 0.5, rotate: 0 } : {}}
+        transition={{ delay: 0.5, duration: 1 }}
+        src="/images/deco-compass.png"
+        alt=""
+        className="absolute bottom-16 left-8 z-[3] w-24 h-auto pointer-events-none hidden lg:block"
       />
 
       <div className="relative z-[2] content-max-width px-6 sm:px-8 lg:px-12">
-        <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between mb-10 gap-4">
+        {/* Main content on aged paper */}
+        <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start">
+          {/* Left: Heading on paper */}
           <motion.div
-            initial={{ opacity: 0, y: 20, rotate: -0.5 }}
-            whileInView={{ opacity: 1, y: 0, rotate: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="aged-paper burned-edges rounded-sm px-8 py-5 inline-block"
-            style={{ transform: 'rotate(-0.5deg)' }}
+            initial={{ opacity: 0, y: 30, rotate: -1 }}
+            animate={isInView ? { opacity: 1, y: 0, rotate: 0 } : {}}
+            transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
+            className="lg:w-[40%]"
           >
-            <h2
-              className="font-serif font-medium text-[#2C2420] leading-[1.05]"
-              style={{ fontSize: 'clamp(32px, 4vw, 52px)' }}
+            <div
+              className="aged-paper burned-edges rounded-sm p-8 lg:p-10"
+              style={{ transform: 'rotate(-1deg)' }}
             >
-              {t.process.title}
-            </h2>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3 }}
-            className="flex items-center gap-3 aged-paper burned-edges rounded-sm px-4 py-2"
-          >
-            <button
-              onClick={prev}
-              className="w-10 h-10 rounded-full border border-[#8B4513]/30 flex items-center justify-center text-[#5C3D2E] hover:text-[#2C2420] hover:border-[#8B4513]/50 transition-all duration-300"
-              aria-label="Previous step"
-            >
-              <ChevronLeft size={16} />
-            </button>
-            <span className="label-uppercase text-[#5C3D2E] text-[11px]">
-              {String(current + 1).padStart(2, '0')} / {String(t.process.steps.length).padStart(2, '0')}
-            </span>
-            <button
-              onClick={next}
-              className="w-10 h-10 rounded-full border border-[#8B4513]/30 flex items-center justify-center text-[#5C3D2E] hover:text-[#2C2420] hover:border-[#8B4513]/50 transition-all duration-300"
-              aria-label="Next step"
-            >
-              <ChevronRight size={16} />
-            </button>
-          </motion.div>
-        </div>
-
-        <div className="relative overflow-hidden">
-          <AnimatePresence initial={false} custom={direction} mode="wait">
-            <motion.div
-              key={current}
-              custom={direction}
-              variants={slideVariants}
-              initial="enter"
-              animate="center"
-              exit="exit"
-              transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
-              className="aged-paper burned-edges rounded-sm px-10 lg:px-14 pt-8 pb-8 lg:pt-10 lg:pb-10 max-w-[700px] mx-auto relative"
-              style={{ transform: `rotate(${current % 2 === 0 ? 0.5 : -0.5}deg)` }}
-            >
-              {/* Number — absolutely positioned at top */}
-              <span
-                className="font-serif text-[72px] lg:text-[90px] font-medium text-[#8B4513] opacity-30 leading-none block absolute top-2 left-8 lg:left-10 pointer-events-none select-none"
-                aria-hidden="true"
-              >
-                {step.number}
+              <span className="font-serif text-[48px] lg:text-[60px] font-medium italic text-[#8B4513] leading-none opacity-60">
+                {t.services.number}
               </span>
-
-              {/* Title — pushed down with padding to clear the number */}
-              <h3 className="font-serif text-[30px] lg:text-[36px] font-medium text-[#2C2420] leading-[1.1] pt-20 lg:pt-24 relative z-[1]">
-                {step.title}
-              </h3>
-
-              <div className="w-12 h-[1px] bg-[#8B4513]/30 my-4" />
-              <p className="font-sans text-[16px] lg:text-[17px] text-[#5C3D2E] leading-[1.7]">
-                {step.body}
+              <h2
+                className="font-serif font-medium text-[#2C2420] leading-[1.05] tracking-[-0.01em] mt-2"
+                style={{ fontSize: 'clamp(32px, 4vw, 52px)' }}
+              >
+                {t.services.heading}
+              </h2>
+              <p className="font-sans text-[16px] lg:text-[17px] text-[#5C3D2E] leading-[1.7] mt-5">
+                {t.services.body}
               </p>
-            </motion.div>
-          </AnimatePresence>
-        </div>
+              <a
+                href="#contact"
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="inline-block mt-5 font-sans text-[14px] font-medium uppercase tracking-[0.06em] text-[#2A3B2E] hover:text-[#1C1410] underline underline-offset-4 transition-all"
+              >
+                {t.services.cta} &rarr;
+              </a>
 
-        <div className="flex items-center justify-center gap-3 mt-10">
-          {t.process.steps.map((_: unknown, i: number) => (
-            <button
-              key={i}
-              onClick={() => goTo(i)}
-              className={`transition-all duration-500 rounded-full ${
-                i === current ? 'w-8 h-2 bg-[#8B4513]' : 'w-2 h-2 bg-[#8B4513]/30 hover:bg-[#8B4513]/50'
-              }`}
-              aria-label={`Go to step ${i + 1}`}
-            />
-          ))}
+              {/* Wax seal */}
+              <img
+                src="/images/deco-wax-seal.png"
+                alt=""
+                className="w-10 h-10 mt-6 opacity-60"
+              />
+            </div>
+          </motion.div>
+
+          {/* Right: Service cards as pinned notes */}
+          <div className="lg:w-[55%] flex flex-col gap-6">
+            {t.services.cards.map((card: { title: string; description: string; icon: string }, i: number) => (
+              <motion.div
+                key={card.title}
+                initial={{ opacity: 0, y: 40, rotate: i % 2 === 0 ? 1 : -1 }}
+                animate={isInView ? { opacity: 1, y: 0, rotate: i % 2 === 0 ? 0.5 : -0.5 } : {}}
+                transition={{
+                  duration: 0.7,
+                  ease: [0.25, 0.1, 0.25, 1],
+                  delay: 0.2 + i * 0.15,
+                }}
+                className="aged-paper burned-edges rounded-sm p-7 lg:p-8"
+                style={{
+                  transform: `rotate(${i % 2 === 0 ? 0.5 : -0.5}deg)`,
+                  marginLeft: i === 1 ? '20px' : '0',
+                  marginRight: i === 0 ? '20px' : '0',
+                }}
+              >
+                <div className="flex items-start gap-5">
+                  <div className="text-[#8B4513] flex-shrink-0 mt-1">
+                    {iconMap[card.icon]}
+                  </div>
+                  <div>
+                    <h3 className="font-serif text-[22px] lg:text-[26px] font-medium text-[#2C2420] leading-[1.2]">
+                      {card.title}
+                    </h3>
+                    <p className="font-sans text-[15px] text-[#5C3D2E] leading-[1.6] mt-2">
+                      {card.description}
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
