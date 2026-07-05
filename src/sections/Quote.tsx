@@ -40,19 +40,19 @@ export default function Quote() {
         >
           {/* Scroll image */}
           <img src="/images/scroll-quote.png" alt="" className="w-full h-auto" />
-          {/* Text overlay — moved UP and darker text for contrast */}
-          <div className="absolute inset-0 flex flex-col items-center justify-start px-[12%] sm:px-[14%] pt-[14%] sm:pt-[12%] pb-[10%]">
+          {/* Text overlay — centered on the flat paper area */}
+          <div className="absolute inset-0 flex flex-col items-center justify-center px-[12%] sm:px-[14%] pt-[18%] pb-[18%]">
             {/* Opening quote */}
             <span
-              className="font-serif text-[50px] sm:text-[70px] lg:text-[90px] font-medium text-[#5C2E15] opacity-30 leading-none block"
+              className="font-serif text-[50px] sm:text-[70px] lg:text-[90px] font-medium text-[#5C2E15] opacity-30 leading-none block mb-[-15px] sm:mb-[-25px]"
               aria-hidden="true"
             >
               &ldquo;
             </span>
 
-            {/* Quote text — darker for contrast against parchment */}
+            {/* Quote text — darker for contrast */}
             <blockquote
-              className="font-serif italic text-[#1C1410] leading-[1.25] text-center relative z-[1] -mt-2 sm:-mt-4"
+              className="font-serif italic text-[#1C1410] leading-[1.25] text-center relative z-[1] mt-2"
               style={{ 
                 fontSize: 'clamp(17px, 2.8vw, 28px)',
                 textShadow: '0 1px 2px rgba(232, 220, 196, 0.6)'
