@@ -45,7 +45,6 @@ export default function Process() {
     >
       <div className="absolute inset-0 bg-gradient-to-b from-[rgba(28,20,16,0.6)] via-[rgba(28,20,16,0.4)] to-[rgba(28,20,16,0.6)]" />
 
-      {/* Pen decoration */}
       <motion.img
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 0.4 }}
@@ -57,7 +56,6 @@ export default function Process() {
       />
 
       <div className="relative z-[2] content-max-width px-6 sm:px-8 lg:px-12">
-        {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between mb-10 gap-4">
           <motion.div
             initial={{ opacity: 0, y: 20, rotate: -0.5 }}
@@ -101,7 +99,6 @@ export default function Process() {
           </motion.div>
         </div>
 
-        {/* Carousel */}
         <div className="relative overflow-hidden">
           <AnimatePresence initial={false} custom={direction} mode="wait">
             <motion.div
@@ -112,16 +109,19 @@ export default function Process() {
               animate="center"
               exit="exit"
               transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
-              className="aged-paper burned-edges rounded-sm p-10 lg:p-14 max-w-[700px] mx-auto"
+              className="aged-paper burned-edges rounded-sm p-10 lg:p-14 max-w-[700px] mx-auto relative"
               style={{ transform: `rotate(${current % 2 === 0 ? 0.5 : -0.5}deg)` }}
             >
-              {/* Number — big, pulled WAY UP into the top padding */}
-              <span className="font-serif text-[72px] lg:text-[90px] font-medium text-[#8B4513] opacity-30 leading-none block -mt-16 lg:-mt-20">
+              {/* Number — absolutely positioned at top, NO overlap possible */}
+              <span
+                className="font-serif text-[72px] lg:text-[90px] font-medium text-[#8B4513] opacity-30 leading-none block absolute top-2 left-8 lg:left-10 pointer-events-none select-none"
+                aria-hidden="true"
+              >
                 {step.number}
               </span>
 
-              {/* Title — sits below with proper gap */}
-              <h3 className="font-serif text-[30px] lg:text-[36px] font-medium text-[#2C2420] leading-[1.1] mt-6 relative z-[1]">
+              {/* Title — pushed down with padding to clear the absolute number */}
+              <h3 className="font-serif text-[30px] lg:text-[36px] font-medium text-[#2C2420] leading-[1.1] pt-20 lg:pt-24 relative z-[1]">
                 {step.title}
               </h3>
 
@@ -133,7 +133,6 @@ export default function Process() {
           </AnimatePresence>
         </div>
 
-        {/* Step dots */}
         <div className="flex items-center justify-center gap-3 mt-10">
           {t.process.steps.map((_: unknown, i: number) => (
             <button
