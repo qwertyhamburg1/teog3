@@ -109,7 +109,7 @@ export default function Process() {
               animate="center"
               exit="exit"
               transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
-              className="aged-paper burned-edges rounded-sm p-10 lg:p-12 max-w-[520px] mx-auto relative"
+              className="aged-paper burned-edges rounded-sm px-10 lg:px-14 pt-8 pb-8 lg:pt-10 lg:pb-10 max-w-[700px] mx-auto relative"
               style={{ transform: `rotate(${current % 2 === 0 ? 0.5 : -0.5}deg)` }}
             >
               {/* Number — absolutely positioned at top */}
@@ -125,7 +125,7 @@ export default function Process() {
                 {step.title}
               </h3>
 
-              <div className="w-12 h-[1px] bg-[#8B4513]/30 my-5" />
+              <div className="w-12 h-[1px] bg-[#8B4513]/30 my-4" />
               <p className="font-sans text-[16px] lg:text-[17px] text-[#5C3D2E] leading-[1.7]">
                 {step.body}
               </p>
