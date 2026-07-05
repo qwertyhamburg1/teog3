@@ -115,13 +115,13 @@ export default function Process() {
               className="aged-paper burned-edges rounded-sm p-10 lg:p-14 max-w-[700px] mx-auto"
               style={{ transform: `rotate(${current % 2 === 0 ? 0.5 : -0.5}deg)` }}
             >
-              {/* Number — big, pulled UP with negative margin */}
-              <span className="font-serif text-[72px] lg:text-[90px] font-medium text-[#8B4513] opacity-30 leading-none block -mt-6 lg:-mt-8">
+              {/* Number — big, pulled WAY UP into the top padding */}
+              <span className="font-serif text-[72px] lg:text-[90px] font-medium text-[#8B4513] opacity-30 leading-none block -mt-16 lg:-mt-20">
                 {step.number}
               </span>
 
               {/* Title — sits below with proper gap */}
-              <h3 className="font-serif text-[30px] lg:text-[36px] font-medium text-[#2C2420] leading-[1.1] mt-4 relative z-[1]">
+              <h3 className="font-serif text-[30px] lg:text-[36px] font-medium text-[#2C2420] leading-[1.1] mt-6 relative z-[1]">
                 {step.title}
               </h3>
 
