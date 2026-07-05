@@ -2,7 +2,4 @@
   "rewrites": [
     { "source": "/((?!api/).*)", "destination": "/" }
   ],
-  "git": {
-    "deploymentEnabled": false
-  }
 }
