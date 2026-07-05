@@ -49,7 +49,7 @@ export default function Testimonials() {
           </h2>
         </motion.div>
 
-        {/* Letters */}
+        {/* Cards — GREEN background like buttons */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
           {t.testimonials.cards.map((card: { quote: string; author: string; role: string }, i: number) => (
             <motion.div
@@ -57,26 +57,29 @@ export default function Testimonials() {
               initial={{ opacity: 0, y: 40, rotate: i === 0 ? -1 : i === 2 ? 1 : 0 }}
               animate={isInView ? { opacity: 1, y: 0, rotate: i === 0 ? -0.5 : i === 2 ? 0.5 : 0 } : {}}
               transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1], delay: 0.15 + i * 0.15 }}
-              className="aged-paper burned-edges rounded-sm p-8 lg:p-10 relative"
-              style={{ transform: `rotate(${i === 0 ? -0.5 : i === 2 ? 0.5 : 0}deg)` }}
+              className="rounded-sm p-8 lg:p-10 relative shadow-card"
+              style={{
+                transform: `rotate(${i === 0 ? -0.5 : i === 2 ? 0.5 : 0}deg)`,
+                backgroundColor: '#2A3B2E',
+              }}
             >
               <span
-                className="font-serif text-[56px] lg:text-[72px] font-medium text-[#8B4513] opacity-20 leading-none absolute top-2 left-5"
+                className="font-serif text-[56px] lg:text-[72px] font-medium text-[#C9A94E] opacity-40 leading-none absolute top-2 left-5"
                 aria-hidden="true"
               >
                 &ldquo;
               </span>
 
-              <p className="font-serif text-[18px] lg:text-[20px] font-normal italic text-[#2C2420] leading-[1.5] mt-10 relative z-[1]">
+              <p className="font-serif text-[18px] lg:text-[20px] font-normal italic text-[#F0E6D3] leading-[1.5] mt-10 relative z-[1]">
                 {card.quote}
               </p>
 
-              <div className="w-10 h-[1px] bg-[#8B4513]/30 my-5" />
+              <div className="w-10 h-[1px] bg-[#C9A94E]/40 my-5" />
 
-              <p className="font-sans text-[15px] font-medium text-[#2C2420]">
+              <p className="font-sans text-[15px] font-medium text-[#E8DCC4]">
                 {card.author}
               </p>
-              <p className="font-sans text-[13px] text-[#5C3D2E] mt-1">
+              <p className="font-sans text-[13px] text-[#E8DCC4]/70 mt-1">
                 {card.role}
               </p>
             </motion.div>
