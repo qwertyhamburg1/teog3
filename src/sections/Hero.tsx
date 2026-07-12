@@ -24,29 +24,32 @@ export default function Hero() {
     exit: (dir: number) => ({ x: dir > 0 ? '-100%' : '100%', opacity: 0 }),
   };
 
-  // Split title into 2 lines: "WRITE YOUR" + "STORY" / "SCHREIBE DEINE" + "GESCHICHTE"
+  // Split title into 2 lines
   const titleWords = t.hero.title.split(' ');
   const titleLine1 = titleWords.slice(0, -1).join(' ');
   const titleLine2 = titleWords[titleWords.length - 1];
 
   const scrollText = (
     <>
+      {/* Title — bigger on mobile via clamp */}
       <h1
         className="font-serif font-medium leading-[0.95] tracking-[-0.01em] text-[#2C2420] text-center"
-        style={{ fontSize: 'clamp(14px, 4.5vw, 64px)' }}
+        style={{ fontSize: 'clamp(16px, 6vw, 64px)' }}
       >
         <span className="block">{titleLine1}</span>
         <span className="block">{titleLine2}</span>
       </h1>
+      {/* Tags */}
       <div className="mt-2 sm:mt-4 flex flex-wrap justify-center gap-x-2 sm:gap-x-3 gap-y-1">
         {t.hero.tags.map((tag: string) => (
           <span key={tag} className="font-sans text-[8px] sm:text-[11px] font-medium uppercase tracking-[0.08em] text-[#5C3D2E]">{tag}</span>
         ))}
       </div>
-      {/* Description now shows on BOTH mobile and desktop */}
-      <p className="mt-1 sm:mt-3 font-sans text-[10px] sm:text-[14px] text-[#5C3D2E] max-w-[500px] mx-auto leading-[1.5] sm:leading-[1.6] text-center">
+      {/* Description — more top margin on mobile */}
+      <p className="mt-3 sm:mt-3 font-sans text-[10px] sm:text-[14px] text-[#5C3D2E] max-w-[500px] mx-auto leading-[1.5] sm:leading-[1.6] text-center">
         {t.hero.description}
       </p>
+      {/* CTA Button */}
       <a
         href="#work"
         onClick={(e) => { e.preventDefault(); document.querySelector('#work')?.scrollIntoView({ behavior: 'smooth' }); }}
