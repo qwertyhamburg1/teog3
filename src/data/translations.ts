@@ -219,7 +219,7 @@ export const translations = {
     // Footer
     footer: {
       nav: ['Services', 'Work', 'About', 'Contact'],
-      copyright: '© 2025 Teo Goussen. All rights reserved.',
+      copyright: '© 2026 Teo Goussen. All rights reserved.',
       legal: {
         privacy: 'Privacy Policy',
         imprint: 'Imprint',
@@ -560,7 +560,7 @@ If you have any questions about data protection, please contact us using the con
     // Footer
     footer: {
       nav: ['Leistungen', 'Arbeiten', 'Über', 'Kontakt'],
-      copyright: '© 2025 Teo Goussen. Alle Rechte vorbehalten.',
+      copyright: '© 2026 Teo Goussen. Alle Rechte vorbehalten.',
       legal: {
         privacy: 'Datenschutz',
         imprint: 'Impressum',
