@@ -6,7 +6,6 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 const mountainImages = [
   { src: '/images/hero-mountain-1.jpg', alt: 'Himalayan peaks' },
   { src: '/images/hero-mountain-2.jpg', alt: 'Mountain monastery' },
-  { src: '/images/hero-mountain-3.jpg', alt: 'Mountain landscape' },
 ];
 
 export default function Hero() {
