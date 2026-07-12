@@ -33,15 +33,15 @@ export default function Footer() {
   return (
     <footer className="bg-[#1C1410] py-14 lg:py-16 px-6 sm:px-8 lg:px-12 border-t border-[#3D2B1F]/50">
       <div className="content-max-width">
-        {/* Top row — horizontal layout with equal side widths so nav is perfectly centered */}
-        <div className="flex flex-col lg:flex-row lg:items-center gap-8 mb-8">
-          {/* Logo — left, fixed width to match socials */}
-          <Link to="/" className="font-['Pinyon_Script',cursive] text-[32px] text-[#E8DCC4] flex-shrink-0 lg:w-[160px]">
+        {/* Desktop: horizontal row | Mobile: centered stacked */}
+        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8 mb-8">
+          {/* Logo — centered on mobile, left on desktop */}
+          <Link to="/" className="font-['Pinyon_Script',cursive] text-[32px] text-[#E8DCC4] text-center lg:text-left">
             TG
           </Link>
 
-          {/* Nav links — centered, takes remaining space */}
-          <nav className="flex-1 flex flex-wrap justify-center gap-5 lg:gap-7">
+          {/* Nav links — centered on both */}
+          <nav className="flex flex-wrap justify-center gap-5 lg:gap-7">
             {allNavLinks.map((link) =>
               link.isRoute ? (
                 <Link key={link.label} to={link.href} className="font-sans text-[13px] text-[#E8DCC4]/50 hover:text-[#E8DCC4] transition-colors">
@@ -55,8 +55,8 @@ export default function Footer() {
             )}
           </nav>
 
-          {/* Social icons — right, fixed width to match logo */}
-          <div className="flex items-center justify-end gap-4 flex-shrink-0 lg:w-[160px]">
+          {/* Social icons — centered on mobile, right on desktop */}
+          <div className="flex items-center justify-center lg:justify-end gap-4">
             <a href="https://instagram.com/teogoussen" target="_blank" rel="noopener noreferrer" className="text-[#E8DCC4]/40 hover:text-[#E4405F] transition-colors" aria-label="Instagram"><Instagram size={18} /></a>
             <a href="https://linkedin.com/in/teogoussen" target="_blank" rel="noopener noreferrer" className="text-[#E8DCC4]/40 hover:text-[#0A66C2] transition-colors" aria-label="LinkedIn"><Linkedin size={18} /></a>
             <a href="https://x.com/teogoussen" target="_blank" rel="noopener noreferrer" className="text-[#E8DCC4]/40 hover:text-white transition-colors" aria-label="X"><XIcon size={18} /></a>
