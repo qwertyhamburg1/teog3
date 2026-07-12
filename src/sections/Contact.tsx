@@ -58,15 +58,16 @@ export default function Contact() {
       />
 
       <div className="relative z-[2] content-max-width px-6 sm:px-8 lg:px-12 w-full">
-        <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start">
+        {/* Stack vertically on mobile, side by side on desktop */}
+        <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 items-stretch lg:items-start">
           {/* Left: Heading on paper */}
           <motion.div
             initial={{ opacity: 0, y: 30, rotate: -0.5 }}
             animate={isInView ? { opacity: 1, y: 0, rotate: 0 } : {}}
             transition={{ duration: 0.8 }}
-            className="lg:w-[45%]"
+            className="w-full lg:w-[45%]"
           >
-            <div className="aged-paper burned-edges rounded-sm p-8 lg:p-10" style={{ transform: 'rotate(-0.5deg)' }}>
+            <div className="aged-paper burned-edges rounded-sm p-6 sm:p-8 lg:p-10" style={{ transform: 'rotate(-0.5deg)' }}>
               <h2
                 className="font-serif font-medium text-[#2C2420] leading-[0.95]"
                 style={{ fontSize: 'clamp(32px, 5vw, 64px)' }}
@@ -89,14 +90,14 @@ export default function Contact() {
             </div>
           </motion.div>
 
-          {/* Right: Form on paper */}
+          {/* Right: Form on paper — full width on mobile */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="lg:w-[50%]"
+            className="w-full lg:w-[50%]"
           >
-            <div className="aged-paper burned-edges rounded-sm p-8 lg:p-10" style={{ transform: 'rotate(0.5deg)' }}>
+            <div className="aged-paper burned-edges rounded-sm p-6 sm:p-8 lg:p-10" style={{ transform: 'rotate(0.5deg)' }}>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <label className="label-uppercase text-[#8B4513] block mb-2">{t.contact.form.name}</label>
