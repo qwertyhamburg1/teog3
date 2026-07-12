@@ -24,6 +24,32 @@ export default function Hero() {
     exit: (dir: number) => ({ x: dir > 0 ? '-100%' : '100%', opacity: 0 }),
   };
 
+  const scrollText = (
+    <>
+      <h1
+        className="font-serif font-medium leading-[0.95] tracking-[-0.01em] text-[#2C2420] text-center"
+        style={{ fontSize: 'clamp(14px, 4.5vw, 64px)' }}
+      >
+        {t.hero.title}
+      </h1>
+      <div className="mt-2 sm:mt-4 flex flex-wrap justify-center gap-x-2 sm:gap-x-3 gap-y-1">
+        {t.hero.tags.map((tag: string) => (
+          <span key={tag} className="font-sans text-[8px] sm:text-[11px] font-medium uppercase tracking-[0.08em] text-[#5C3D2E]">{tag}</span>
+        ))}
+      </div>
+      <p className="mt-1 sm:mt-3 font-sans text-[10px] sm:text-[14px] text-[#5C3D2E] max-w-[500px] mx-auto leading-[1.5] sm:leading-[1.6] text-center hidden sm:block">
+        {t.hero.description}
+      </p>
+      <a
+        href="#work"
+        onClick={(e) => { e.preventDefault(); document.querySelector('#work')?.scrollIntoView({ behavior: 'smooth' }); }}
+        className="mt-2 sm:mt-4 inline-block bg-[#2A3B2E] text-[#F0E6D3] font-sans text-[10px] sm:text-[13px] font-medium tracking-[0.04em] px-3 sm:px-6 py-1.5 sm:py-2.5 rounded-sm hover:bg-[#1C1410] transition-colors duration-300"
+      >
+        {t.hero.cta}
+      </a>
+    </>
+  );
+
   return (
     <section className="relative w-full h-screen overflow-hidden">
       <AnimatePresence initial={false} custom={direction} mode="popLayout">
@@ -38,8 +64,8 @@ export default function Hero() {
       </div>
       <div className="absolute inset-0 z-[3] pointer-events-none" style={{ boxShadow: 'inset 0 0 200px 80px rgba(28,20,16,0.6)' }} />
 
-      {/* HUGE SCROLL */}
-      <div className="absolute inset-0 z-[6] flex items-center justify-center px-6">
+      {/* DESKTOP: wide horizontal scroll */}
+      <div className="absolute inset-0 z-[6] hidden sm:flex items-center justify-center px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -48,29 +74,24 @@ export default function Hero() {
           style={{ maxWidth: '1100px' }}
         >
           <img src="/images/scroll-hero.png" alt="" className="w-full h-auto" />
-          {/* Text on scroll — much wider padding on mobile to keep text inside */}
-          <div className="absolute inset-0 flex flex-col items-center justify-center px-[20%] sm:px-[14%] py-[8%]">
-            <h1
-              className="font-serif font-medium leading-[0.95] tracking-[-0.01em] text-[#2C2420] text-center"
-              style={{ fontSize: 'clamp(14px, 4.5vw, 64px)' }}
-            >
-              {t.hero.title}
-            </h1>
-            <div className="mt-2 sm:mt-4 flex flex-wrap justify-center gap-x-2 sm:gap-x-3 gap-y-1">
-              {t.hero.tags.map((tag: string) => (
-                <span key={tag} className="font-sans text-[8px] sm:text-[11px] font-medium uppercase tracking-[0.08em] text-[#5C3D2E]">{tag}</span>
-              ))}
-            </div>
-            <p className="mt-1 sm:mt-3 font-sans text-[10px] sm:text-[14px] text-[#5C3D2E] max-w-[500px] mx-auto leading-[1.5] sm:leading-[1.6] text-center hidden sm:block">
-              {t.hero.description}
-            </p>
-            <a
-              href="#work"
-              onClick={(e) => { e.preventDefault(); document.querySelector('#work')?.scrollIntoView({ behavior: 'smooth' }); }}
-              className="mt-2 sm:mt-4 inline-block bg-[#2A3B2E] text-[#F0E6D3] font-sans text-[10px] sm:text-[13px] font-medium tracking-[0.04em] px-3 sm:px-6 py-1.5 sm:py-2.5 rounded-sm hover:bg-[#1C1410] transition-colors duration-300"
-            >
-              {t.hero.cta}
-            </a>
+          <div className="absolute inset-0 flex flex-col items-center justify-center px-[14%] py-[8%]">
+            {scrollText}
+          </div>
+        </motion.div>
+      </div>
+
+      {/* MOBILE: vertical/square scroll */}
+      <div className="absolute inset-0 z-[6] flex sm:hidden items-center justify-center px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.2, ease: [0.25, 0.1, 0.25, 1], delay: 0.3 }}
+          className="relative w-full"
+          style={{ maxWidth: '400px' }}
+        >
+          <img src="/images/scroll-quote.png" alt="" className="w-full h-auto" />
+          <div className="absolute inset-0 flex flex-col items-center justify-center px-[12%] py-[14%]">
+            {scrollText}
           </div>
         </motion.div>
       </div>
