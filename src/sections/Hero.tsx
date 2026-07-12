@@ -49,26 +49,26 @@ export default function Hero() {
           style={{ maxWidth: '1100px' }}
         >
           <img src="/images/scroll-hero.png" alt="" className="w-full h-auto" />
-          {/* Text on scroll */}
-          <div className="absolute inset-0 flex flex-col items-center justify-center px-[12%] sm:px-[14%] py-[8%]">
+          {/* Text on scroll — wider padding on mobile to keep text inside */}
+          <div className="absolute inset-0 flex flex-col items-center justify-center px-[16%] sm:px-[14%] py-[8%]">
             <h1
               className="font-serif font-medium leading-[0.95] tracking-[-0.01em] text-[#2C2420] text-center"
-              style={{ fontSize: 'clamp(22px, 4.5vw, 64px)' }}
+              style={{ fontSize: 'clamp(16px, 4.5vw, 64px)' }}
             >
               {t.hero.title}
             </h1>
             <div className="mt-3 sm:mt-4 flex flex-wrap justify-center gap-x-3 gap-y-1">
               {t.hero.tags.map((tag: string) => (
-                <span key={tag} className="font-sans text-[10px] sm:text-[11px] font-medium uppercase tracking-[0.08em] text-[#5C3D2E]">{tag}</span>
+                <span key={tag} className="font-sans text-[9px] sm:text-[11px] font-medium uppercase tracking-[0.08em] text-[#5C3D2E]">{tag}</span>
               ))}
             </div>
-            <p className="mt-2 sm:mt-3 font-sans text-[12px] sm:text-[14px] text-[#5C3D2E] max-w-[500px] mx-auto leading-[1.6] text-center">
+            <p className="mt-2 sm:mt-3 font-sans text-[11px] sm:text-[14px] text-[#5C3D2E] max-w-[500px] mx-auto leading-[1.6] text-center">
               {t.hero.description}
             </p>
             <a
               href="#work"
               onClick={(e) => { e.preventDefault(); document.querySelector('#work')?.scrollIntoView({ behavior: 'smooth' }); }}
-              className="mt-3 sm:mt-4 inline-block bg-[#2A3B2E] text-[#F0E6D3] font-sans text-[12px] sm:text-[13px] font-medium tracking-[0.04em] px-6 py-2.5 rounded-sm hover:bg-[#1C1410] transition-colors duration-300"
+              className="mt-3 sm:mt-4 inline-block bg-[#2A3B2E] text-[#F0E6D3] font-sans text-[11px] sm:text-[13px] font-medium tracking-[0.04em] px-4 sm:px-6 py-2 sm:py-2.5 rounded-sm hover:bg-[#1C1410] transition-colors duration-300"
             >
               {t.hero.cta}
             </a>
