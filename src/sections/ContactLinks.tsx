@@ -13,7 +13,7 @@ function WhatsAppIcon({ size = 22 }: { size?: number }) {
 
 const contactLinks = [
   { name: 'WhatsApp', href: 'https://wa.me/491234567890', icon: <WhatsAppIcon size={22} /> },
-  { name: 'LinkedIn', href: 'https://linkedin.com/in/teogoussen', icon: <Linkedin size={22} /> },
+  { name: 'LinkedIn', href: 'https://www.linkedin.com/in/teo-m-gou%C3%9Fen-b5ba0b26a/', icon: <Linkedin size={22} /> },
   { name: 'Instagram', href: 'https://instagram.com/teogoussen', icon: <Instagram size={22} /> },
   { name: 'Email', href: 'mailto:example@gmail.com', icon: <Mail size={22} /> },
 ];
