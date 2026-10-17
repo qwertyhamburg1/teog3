@@ -1,42 +1,63 @@
 // @ts-nocheck
+
+function escapeHtml(str = '') {
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
 export default async function handler(req, res) {
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-
-  if (req.method === 'OPTIONS') {
-    return res.status(200).end();
-  }
-
   if (req.method !== 'POST') {
+    res.setHeader('Allow', 'POST');
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  const { name, email, projectType, message } = req.body || {};
+  const { name, email, projectType, message, honeypot } = req.body || {};
 
+  // Honeypot check: If invisible bot field is filled, silently succeed without notifying Telegram
+  if (honeypot) {
+    return res.status(200).json({ success: true });
+  }
+
+  // Required field checks
   if (!name || !email || !message) {
     return res.status(400).json({ error: 'Missing required fields' });
+  }
+
+  // Length constraints to prevent payload flooding
+  if (
+    typeof name !== 'string' || name.length > 100 ||
+    typeof email !== 'string' || email.length > 254 ||
+    (projectType && (typeof projectType !== 'string' || projectType.length > 100)) ||
+    typeof message !== 'string' || message.length > 3000
+  ) {
+    return res.status(400).json({ error: 'Input exceeds permitted length' });
+  }
+
+  // Email format validation
+  if (!EMAIL_REGEX.test(email.trim())) {
+    return res.status(400).json({ error: 'Invalid email address' });
   }
 
   const botToken = process.env.TELEGRAM_BOT_TOKEN;
   const chatId = process.env.TELEGRAM_CHAT_ID;
 
-  if (!botToken) {
-    return res.status(500).json({ error: 'TELEGRAM_BOT_TOKEN not set' });
+  if (!botToken || !chatId) {
+    console.error('Telegram environment variables not set in Vercel');
+    return res.status(500).json({ error: 'Service temporarily unavailable' });
   }
 
-  if (!chatId) {
-    return res.status(500).json({ error: 'TELEGRAM_CHAT_ID not set' });
-  }
+  // Sanitize all inputs before building the HTML message
+  const safeName = escapeHtml(name.trim());
+  const safeEmail = escapeHtml(email.trim());
+  const safeType = escapeHtml((projectType || 'Not specified').trim());
+  const safeMessage = escapeHtml(message.trim());
 
-  const text = `
-📬 <b>New Contact Form Submission</b>
-
-<b>Name:</b> ${name}
-<b>Email:</b> ${email}
-<b>Project Type:</b> ${projectType || 'Not specified'}
-<b>Message:</b> ${message}
-`;
+  const text = `📬 <b>New Contact Form Submission</b>\n\n<b>Name:</b> ${safeName}\n<b>Email:</b> ${safeEmail}\n<b>Project Type:</b> ${safeType}\n<b>Message:</b> ${safeMessage}`;
 
   try {
     const telegramRes = await fetch(
@@ -56,15 +77,12 @@ export default async function handler(req, res) {
 
     if (!telegramRes.ok || !telegramData.ok) {
       console.error('Telegram API error:', telegramData);
-      return res.status(500).json({
-        error: 'Telegram API error',
-        details: telegramData.description || 'Unknown error',
-      });
+      return res.status(500).json({ error: 'Failed to send message' });
     }
 
     return res.status(200).json({ success: true });
   } catch (error) {
-    console.error('Error sending to Telegram:', error);
-    return res.status(500).json({ error: 'Internal server error', details: error.message });
+    console.error('Server error sending to Telegram:', error);
+    return res.status(500).json({ error: 'Internal server error' });
   }
 }
