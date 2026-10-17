@@ -33,14 +33,11 @@ export default function Footer() {
   return (
     <footer className="bg-[#1C1410] py-14 lg:py-16 px-6 sm:px-8 lg:px-12 border-t border-[#3D2B1F]/50">
       <div className="content-max-width">
-        {/* Desktop: horizontal row | Mobile: centered stacked */}
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8 mb-8">
-          {/* Logo — centered on mobile, left on desktop */}
           <Link to="/" className="font-['Pinyon_Script',cursive] text-[32px] text-[#E8DCC4] text-center lg:text-left">
             TG
           </Link>
 
-          {/* Nav links — centered on both */}
           <nav className="flex flex-wrap justify-center gap-5 lg:gap-7">
             {allNavLinks.map((link) =>
               link.isRoute ? (
@@ -55,10 +52,9 @@ export default function Footer() {
             )}
           </nav>
 
-          {/* Social icons — centered on mobile, right on desktop */}
           <div className="flex items-center justify-center lg:justify-end gap-4">
             <a href="https://instagram.com/teogoussen" target="_blank" rel="noopener noreferrer" className="text-[#E8DCC4]/40 hover:text-[#E4405F] transition-colors" aria-label="Instagram"><Instagram size={18} /></a>
-            <a href="https://linkedin.com/in/teogoussen" target="_blank" rel="noopener noreferrer" className="text-[#E8DCC4]/40 hover:text-[#0A66C2] transition-colors" aria-label="LinkedIn"><Linkedin size={18} /></a>
+            <a href="https://www.linkedin.com/in/teo-m-gou%C3%9Fen-b5ba0b26a/" target="_blank" rel="noopener noreferrer" className="text-[#E8DCC4]/40 hover:text-[#0A66C2] transition-colors" aria-label="LinkedIn"><Linkedin size={18} /></a>
             <a href="https://x.com/teogoussen" target="_blank" rel="noopener noreferrer" className="text-[#E8DCC4]/40 hover:text-white transition-colors" aria-label="X"><XIcon size={18} /></a>
             <a href="https://wa.me/491234567890" target="_blank" rel="noopener noreferrer" className="text-[#E8DCC4]/40 hover:text-[#25D366] transition-colors" aria-label="WhatsApp"><WhatsAppIcon size={18} /></a>
             <a href="mailto:example@gmail.com" className="text-[#E8DCC4]/40 hover:text-[#C9A94E] transition-colors" aria-label="Email"><Mail size={18} /></a>
