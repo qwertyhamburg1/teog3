@@ -8,7 +8,7 @@ export const translations = {
       work: 'Work',
       about: 'About',
       contact: 'Contact',
-      brand: 'Teo Goussen',
+      brand: 'Teo Goußen',
       brandInitials: 'TG',
       menu: 'Menu',
       close: 'Close',
@@ -19,7 +19,7 @@ export const translations = {
       title: 'WRITE YOUR STORY',
       tags: ['Brand Strategy', 'Copywriting', 'Content Creation'],
       description:
-        'Teo Goussen — Premium copywriter for brands that want to tell unforgettable stories.',
+        'Teo Goußen — Premium copywriter for brands that want to tell unforgettable stories.',
       cta: 'Explore My Work',
       scroll: 'Scroll',
     },
@@ -128,7 +128,7 @@ export const translations = {
     // Quote
     quote: {
       text: "I don't just write copy — I uncover the story your brand has been trying to tell. Working with me feels like finally finding the right voice after years of silence.",
-      attribution: '— Teo Goussen',
+      attribution: '— Teo Goußen',
     },
 
     // Process
@@ -219,7 +219,7 @@ export const translations = {
     // Footer
     footer: {
       nav: ['Services', 'Work', 'About', 'Contact'],
-      copyright: '© 2026 Teo Goussen. All rights reserved.',
+      copyright: '© 2026 Teo Goußen. All rights reserved.',
       legal: {
         privacy: 'Privacy Policy',
         imprint: 'Imprint',
@@ -242,11 +242,11 @@ export const translations = {
       sections: [
         {
           title: 'Information according to § 5 DDG',
-          content: `Teo Goussen
+          content: `Teo Goußen
 Copywriting Services
 [Your Street and House Number]
-[Your Postal Code and City]
-[Your Country]`,
+[Your Postal Code] Hamburg
+Germany`,
         },
         {
           title: 'Contact',
@@ -255,9 +255,9 @@ Email: [Your Contact Email]`,
         },
         {
           title: 'Responsible for content',
-          content: `Teo Goussen
+          content: `Teo Goußen
 [Your Street and House Number]
-[Your Postal Code and City]`,
+[Your Postal Code] Hamburg`,
         },
         {
           title: 'VAT ID (if applicable)',
@@ -324,7 +324,7 @@ To ensure immediate receipt of notifications, contact requests are securely forw
       work: 'Arbeiten',
       about: 'Über',
       contact: 'Kontakt',
-      brand: 'Teo Goussen',
+      brand: 'Teo Goußen',
       brandInitials: 'TG',
       menu: 'Menü',
       close: 'Schließen',
@@ -335,7 +335,7 @@ To ensure immediate receipt of notifications, contact requests are securely forw
       title: 'SCHREIBE DEINE GESCHICHTE',
       tags: ['Markenstrategie', 'Texten', 'Content Creation'],
       description:
-        'Teo Goussen — Premium-Texter für Marken, die unvergessliche Geschichten erzählen wollen.',
+        'Teo Goußen — Premium-Texter für Marken, die unvergessliche Geschichten erzählen wollen.',
       cta: 'Entdecke meine Arbeit',
       scroll: 'Scrollen',
     },
@@ -444,7 +444,7 @@ To ensure immediate receipt of notifications, contact requests are securely forw
     // Quote
     quote: {
       text: 'Ich schreibe nicht einfach nur Text — ich enthülle die Geschichte, die deine Marke schon immer erzählen wollte. Die Zusammenarbeit mit mir ist wie das endliche Finden der richtigen Stimme nach Jahren des Schweigens.',
-      attribution: '— Teo Goussen',
+      attribution: '— Teo Goußen',
     },
 
     // Process
@@ -535,7 +535,7 @@ To ensure immediate receipt of notifications, contact requests are securely forw
     // Footer
     footer: {
       nav: ['Leistungen', 'Arbeiten', 'Über', 'Kontakt'],
-      copyright: '© 2026 Teo Goussen. Alle Rechte vorbehalten.',
+      copyright: '© 2026 Teo Goußen. Alle Rechte vorbehalten.',
       legal: {
         privacy: 'Datenschutz',
         imprint: 'Impressum',
@@ -558,11 +558,11 @@ To ensure immediate receipt of notifications, contact requests are securely forw
       sections: [
         {
           title: 'Angaben gemäß § 5 DDG',
-          content: `Teo Goussen
+          content: `Teo Goußen
 Texten & Beratung
 [Deine Straße und Hausnummer]
-[Deine PLZ und Ort]
-[Dein Land]`,
+[Deine PLZ] Hamburg
+Deutschland`,
         },
         {
           title: 'Kontakt',
@@ -571,9 +571,9 @@ E-Mail: [Deine echte Kontakt-E-Mail]`,
         },
         {
           title: 'Verantwortlich für den Inhalt',
-          content: `Teo Goussen
+          content: `Teo Goußen
 [Deine Straße und Hausnummer]
-[Deine PLZ und Ort]`,
+[Deine PLZ] Hamburg`,
         },
         {
           title: 'Umsatzsteuer-ID (falls vorhanden)',
