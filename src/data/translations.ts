@@ -241,28 +241,28 @@ export const translations = {
       heading: 'Impressum',
       sections: [
         {
-          title: 'Information according to § 5 TMG',
+          title: 'Information according to § 5 DDG',
           content: `Teo Goussen
 Copywriting Services
-Musterstraße 12
-10115 Berlin
-Germany`,
+[Your Street and House Number]
+[Your Postal Code and City]
+[Your Country]`,
         },
         {
           title: 'Contact',
-          content: `Phone: +49 (0) 30 12345678
-Email: hello@lenaweber.com`,
+          content: `Phone: [Your Phone Number]
+Email: [Your Contact Email]`,
         },
         {
           title: 'Responsible for content',
           content: `Teo Goussen
-Musterstraße 12
-10115 Berlin`,
+[Your Street and House Number]
+[Your Postal Code and City]`,
         },
         {
-          title: 'VAT ID',
-          content: `VAT identification number according to §27a UStG:
-DE123456789`,
+          title: 'VAT ID (if applicable)',
+          content: `VAT identification number according to § 27a UStG:
+[Your VAT ID or delete this section if small business / Kleinunternehmer]`,
         },
         {
           title: 'EU Dispute Resolution',
@@ -277,7 +277,7 @@ We are neither willing nor obliged to participate in dispute resolution proceedi
     privacy: {
       title: 'Privacy Policy',
       heading: 'Datenschutzerklärung',
-      lastUpdated: 'Last updated: January 2025',
+      lastUpdated: 'Last updated: 2026',
       sections: [
         {
           title: '1. General Information',
@@ -286,57 +286,32 @@ We are neither willing nor obliged to participate in dispute resolution proceedi
         {
           title: '2. Data Collection on This Website',
           content: `Who is responsible for data collection on this website?
-Data processing on this website is carried out by the website operator. You can find their contact details in the imprint section of this website.
+Data processing on this website is carried out by the website operator. You can find contact details in the imprint section of this website.
 
 How do we collect your data?
-On the one hand, your data is collected when you provide it to us. This may, for example, be data that you enter in a contact form.
-
-Other data is collected automatically or with your consent when you visit the website by our IT systems. This is primarily technical data (e.g. internet browser, operating system or time of page view).`,
+Your data is collected when you enter it in our contact form. Technical data (e.g. browser type, operating system, time of page view) is automatically processed by our hosting infrastructure to securely deliver the website.`,
         },
         {
-          title: '3. Contact Form',
-          content: `If you send us enquiries via the contact form, your details from the enquiry form, including the contact details you provide there, will be stored by us for the purpose of processing the enquiry and in the event of follow-up questions. We do not pass on this data without your consent.
+          title: '3. Contact Form & Telegram Notification',
+          content: `If you send us inquiries via the contact form, your details from the form (name, email address, project type, and message) will be processed by us to respond to your request.
 
-The processing of this data is based on Art. 6 (1) lit. b GDPR, provided that your request is related to the fulfilment of a contract or is necessary for the implementation of pre-contractual measures. In all other cases, the processing is based on our legitimate interest in the effective processing of the requests addressed to us (Art. 6 (1) lit. f GDPR).`,
+To ensure immediate receipt of notifications, contact requests are securely forwarded to the operator via the Telegram Bot API (Telegram Messenger Inc. / Telegram FZ-LLC). The processing is based on Art. 6 (1) lit. b GDPR (for pre-contractual measures) and Art. 6 (1) lit. f GDPR (our legitimate interest in effective communication). Data is not used by Telegram for advertising or profiling.`,
         },
         {
           title: '4. Cookies',
-          content: `Our website uses so-called "cookies". Cookies are small text files and do not cause any damage to your device. They are stored on your device either temporarily for the duration of a session (session cookies) or permanently (permanent cookies).
-
-You can set your browser so that you are informed about the setting of cookies and only allow cookies in individual cases, exclude the acceptance of cookies for certain cases or in general, and activate the automatic deletion of cookies when closing the browser.`,
+          content: `This website does not use tracking cookies or marketing cookies. No personal user profiling takes place.`,
         },
         {
-          title: '5. Analytics',
-          content: `This website does not currently use any analytics tools. If this changes in the future, we will update this privacy policy accordingly and obtain any necessary consent in accordance with GDPR requirements.`,
+          title: '5. Local Fonts (No Google Fonts Connection)',
+          content: `This website uses fonts (Cormorant Garamond, Inter, Pinyon Script) that are hosted locally on our own web server. When you access this site, no connection to Google Fonts or other third-party font servers is established, ensuring your IP address is not shared with third-party providers.`,
         },
         {
           title: '6. Hosting',
-          content: `This website is hosted by an external service provider (hoster). The personal data collected on this website is stored on the hoster's servers. This may include IP addresses, contact requests, meta and communication data, contract data, contact details, names, website accesses and other data generated via a website.
-
-The use of the hoster is for the purpose of fulfilling the contract with our potential and existing customers (Art. 6 (1) lit. b GDPR) and in the interest of a secure, fast and efficient provision of our online offer by a professional provider (Art. 6 (1) lit. f GDPR).`,
+          content: `This website is hosted by an external service provider (Vercel Inc.). The personal data collected on this website is processed on the servers of the hoster to ensure the fast, secure, and reliable provision of our online presence (Art. 6 (1) lit. f GDPR).`,
         },
         {
           title: '7. Your Rights',
-          content: `You have the following rights under the GDPR:
-
-• Right to information (Art. 15 GDPR)
-• Right to rectification (Art. 16 GDPR)
-• Right to erasure (Art. 17 GDPR)
-• Right to restriction of processing (Art. 18 GDPR)
-• Right to data portability (Art. 20 GDPR)
-• Right to object (Art. 21 GDPR)
-• Right to withdraw consent (Art. 7 (3) GDPR)
-• Right to lodge a complaint with a supervisory authority (Art. 77 GDPR)
-
-If you have any questions about data protection, please contact us using the contact details provided in the imprint.`,
-        },
-        {
-          title: '8. Data Retention',
-          content: `We only store your personal data for as long as is necessary to achieve the purposes stated here or as required by the statutory retention periods. After the respective purpose no longer applies or these periods have expired, the corresponding data is routinely blocked or deleted in accordance with the statutory provisions.`,
-        },
-        {
-          title: '9. Security',
-          content: `We use appropriate technical and organizational security measures to protect your data against accidental or intentional manipulation, partial or complete loss, destruction or unauthorized access by third parties. Our security measures are continuously improved in line with technological developments.`,
+          content: `You have the right at any time to obtain information free of charge about your stored personal data, its origin, recipient, and the purpose of data processing, as well as a right to correction, blocking, or deletion of this data (Art. 15-21 GDPR). You also have the right to lodge a complaint with the competent supervisory authority (Art. 77 GDPR).`,
         },
       ],
     },
@@ -582,28 +557,28 @@ If you have any questions about data protection, please contact us using the con
       heading: 'Impressum',
       sections: [
         {
-          title: 'Angaben gemäß § 5 TMG',
+          title: 'Angaben gemäß § 5 DDG',
           content: `Teo Goussen
 Texten & Beratung
-Musterstraße 12
-10115 Berlin
-Deutschland`,
+[Deine Straße und Hausnummer]
+[Deine PLZ und Ort]
+[Dein Land]`,
         },
         {
           title: 'Kontakt',
-          content: `Telefon: +49 (0) 30 12345678
-E-Mail: hello@lenaweber.com`,
+          content: `Telefon: [Deine Telefonnummer]
+E-Mail: [Deine echte Kontakt-E-Mail]`,
         },
         {
           title: 'Verantwortlich für den Inhalt',
           content: `Teo Goussen
-Musterstraße 12
-10115 Berlin`,
+[Deine Straße und Hausnummer]
+[Deine PLZ und Ort]`,
         },
         {
-          title: 'Umsatzsteuer-ID',
-          content: `Umsatzsteuer-Identifikationsnummer gemäß §27a UStG:
-DE123456789`,
+          title: 'Umsatzsteuer-ID (falls vorhanden)',
+          content: `Umsatzsteuer-Identifikationsnummer gemäß § 27a UStG:
+[Deine USt-IdNr. oder Absatz löschen falls Kleinunternehmer]`,
         },
         {
           title: 'EU-Streitschlichtung',
@@ -618,7 +593,7 @@ Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer 
     privacy: {
       title: 'Datenschutzerklärung',
       heading: 'Datenschutzerklärung',
-      lastUpdated: 'Stand: Januar 2025',
+      lastUpdated: 'Stand: 2026',
       sections: [
         {
           title: '1. Allgemeine Hinweise',
@@ -630,54 +605,29 @@ Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer 
 Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber. Dessen Kontaktdaten können Sie dem Impressum dieser Website entnehmen.
 
 Wie erfassen wir Ihre Daten?
-Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese mitteilen. Hierbei kann es sich z. B. um Daten handeln, die Sie in ein Kontaktformular eingeben.
-
-Andere Daten werden automatisch oder nach Ihrer Einwilligung beim Besuch der Website durch unsere IT-Systeme erfasst. Das sind vor allem technische Daten (z. B. Internetbrowser, Betriebssystem oder Uhrzeit des Seitenaufrufs).`,
+Ihre Daten werden erhoben, wenn Sie diese in unser Kontaktformular eingeben. Technische Daten (z. B. Internetbrowser, Betriebssystem oder Uhrzeit des Seitenaufrufs) werden durch das Hosting automatisiert erfasst, um die Website sicher bereitzustellen.`,
         },
         {
-          title: '3. Kontaktformular',
-          content: `Wenn Sie uns per Kontaktformular Anfragen zukommen lassen, werden Ihre Angaben aus dem Anfrageformular inklusive der von Ihnen dort angegebenen Kontaktdaten zwecks Bearbeitung der Anfrage und für den Fall von Anschlussfragen bei uns gespeichert. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter.
+          title: '3. Kontaktformular & Telegram-Benachrichtigung',
+          content: `Wenn Sie uns per Kontaktformular Anfragen zukommen lassen, werden Ihre Angaben aus dem Formular (Name, E-Mail-Adresse, Projekttyp und Nachricht) zwecks Bearbeitung der Anfrage verarbeitet.
 
-Die Verarbeitung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO, sofern Ihre Anfrage mit der Erfüllung eines Vertrags zusammenhängt oder zur Durchführung vorvertraglicher Maßnahmen erforderlich ist. In allen übrigen Fällen beruht die Verarbeitung auf unserem berechtigten Interesse an der effektiven Bearbeitung der an uns gerichteten Anfragen (Art. 6 Abs. 1 lit. f DSGVO).`,
+Um eine sofortige Benachrichtigung zu gewährleisten, werden Kontaktanfragen verschlüsselt über die Telegram Bot API (Telegram Messenger Inc. / Telegram FZ-LLC) an den Betreiber weitergeleitet. Die Verarbeitung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO (vorvertragliche Maßnahmen) sowie Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einer effizienten Bearbeitung). Eine Weitergabe oder Nutzung zu Werbezwecken findet nicht statt.`,
         },
         {
           title: '4. Cookies',
-          content: `Unsere Internetseiten verwenden so genannte „Cookies". Cookies sind kleine Textdateien und richten auf Ihrem Endgerät keinen Schaden an. Sie werden auf Ihrem Endgerät entweder vorübergehend für die Dauer einer Sitzung (Session-Cookies) oder dauerhaft (permanente Cookies) gespeichert.
-
-Sie können Ihren Browser so einstellen, dass Sie über das Setzen von Cookies informiert werden und Cookies nur im Einzelfall erlauben, die Annahme von Cookies für bestimmte Fälle oder generell ausschließen sowie das automatische Löschen der Cookies beim Schließen des Browsers aktivieren.`,
+          content: `Diese Website verwendet keine Tracking-Cookies oder Werbe-Cookies. Ein Profiling von Besuchern findet nicht statt.`,
         },
         {
-          title: '5. Analyse-Tools',
-          content: `Diese Website verwendet derzeit keine Analyse-Tools. Sollte sich dies in Zukunft ändern, werden wir diese Datenschutzerklärung entsprechend aktualisieren und gegebenenfalls die erforderliche Einwilligung gemäß DSGVO einholten.`,
+          title: '5. Lokale Schriftarten (Keine Google Fonts Verbindung)',
+          content: `Diese Website nutzt zur einheitlichen Darstellung Schriftarten (Cormorant Garamond, Inter, Pinyon Script), die lokal auf unserem Server gehostet werden. Beim Aufruf der Seiten wird keine Verbindung zu externen Servern von Google aufgebaut und es werden keine IP-Adressen an Google übermittelt.`,
         },
         {
           title: '6. Hosting',
-          content: `Diese Website wird bei einem externen Dienstleister gehostet (Hoster). Die personenbezogenen Daten, die auf dieser Website erfasst werden, werden auf den Servern des Hosters gespeichert. Hierbei kann es sich v. a. um IP-Adressen, Kontaktanfragen, Meta- und Kommunikationsdaten, Vertragsdaten, Kontaktdaten, Namen, Websitezugriffe und sonstige Daten handeln, die über eine Website generiert werden.
-
-Der Einsatz des Hosters erfolgt zum Zwecke der Vertragserfüllung gegenüber unseren potenziellen und bestehenden Kunden (Art. 6 Abs. 1 lit. b DSGVO) und im Interesse einer sicheren, schnellen und effizienten Bereitstellung unseres Online-Angebots durch einen professionellen Anbieter (Art. 6 Abs. 1 lit. f DSGVO).`,
+          content: `Diese Website wird bei einem externen Dienstleister gehostet (Vercel Inc.). Die personenbezogenen Daten, die auf dieser Website erfasst werden, werden auf den Servern des Hosters gespeichert, um eine sichere, schnelle und effiziente Bereitstellung unseres Online-Angebots zu gewährleisten (Art. 6 Abs. 1 lit. f DSGVO).`,
         },
         {
           title: '7. Ihre Rechte',
-          content: `Ihnen stehen nach der DSGVO folgende Rechte zu:
-
-• Recht auf Auskunft (Art. 15 DSGVO)
-• Recht auf Berichtigung (Art. 16 DSGVO)
-• Recht auf Löschung (Art. 17 DSGVO)
-• Recht auf Einschränkung der Verarbeitung (Art. 18 DSGVO)
-• Recht auf Datenübertragbarkeit (Art. 20 DSGVO)
-• Widerspruchsrecht (Art. 21 DSGVO)
-• Widerrufsrecht bei Einwilligungen (Art. 7 Abs. 3 DSGVO)
-• Beschwerderecht bei einer Aufsichtsbehörde (Art. 77 DSGVO)
-
-Bei Fragen zum Datenschutz kontaktieren Sie uns bitte unter den im Impressum angegebenen Kontaktdaten.`,
-        },
-        {
-          title: '8. Datenspeicherung',
-          content: `Wir speichern Ihre personenbezogenen Daten nur so lange, wie dies zur Erreichung der hier genannten Zwecke erforderlich ist oder wie es die gesetzlichen Aufbewahrungsfristen vorsehen. Nach Wegfall des jeweiligen Zwecks oder Ablauf dieser Fristen werden die entsprechenden Daten routinemäßig und entsprechend den gesetzlichen Vorschriften gesperrt oder gelöscht.`,
-        },
-        {
-          title: '9. Sicherheit',
-          content: `Wir verwenden geeignete technische und organisatorische Sicherheitsmaßnahmen, um Ihre Daten gegen zufällige oder vorsätzliche Manipulationen, teilweisen oder vollständigen Verlust, Zerstörung oder gegen den unbefugten Zugriff Dritter zu schützen. Unsere Sicherheitsmaßnahmen werden entsprechend der technologischen Entwicklung fortlaufend verbessert.`,
+          content: `Sie haben jederzeit das Recht auf unentgeltliche Auskunft über Herkunft, Empfänger und Zweck Ihrer gespeicherten personenbezogenen Daten sowie ein Recht auf Berichtigung, Sperrung oder Löschung dieser Daten (Art. 15-21 DSGVO). Hierzu sowie zu weiteren Fragen können Sie sich jederzeit unter der im Impressum angegebenen Adresse an uns wenden. Des Weiteren steht Ihnen ein Beschwerderecht bei der zuständigen Aufsichtsbehörde zu (Art. 77 DSGVO).`,
         },
       ],
     },
