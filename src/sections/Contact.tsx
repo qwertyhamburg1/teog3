@@ -6,7 +6,7 @@ export default function Contact() {
   const { t } = useI18n();
   const sectionRef = useRef<HTMLElement>(null);
   const isInView = useInView(sectionRef, { once: true, amount: 0.15 });
-  const [formData, setFormData] = useState({ name: '', email: '', projectType: '', message: '' });
+  const [formData, setFormData] = useState({ name: '', email: '', projectType: '', message: '', honeypot: '' });
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [errorMsg, setErrorMsg] = useState('');
 
@@ -22,7 +22,7 @@ export default function Contact() {
       });
       if (res.ok) {
         setStatus('success');
-        setFormData({ name: '', email: '', projectType: '', message: '' });
+        setFormData({ name: '', email: '', projectType: '', message: '', honeypot: '' });
       } else {
         const data = await res.json().catch(() => ({}));
         setErrorMsg(data.details || data.error || `Server error: ${res.status}`);
@@ -99,11 +99,26 @@ export default function Contact() {
           >
             <div className="aged-paper burned-edges rounded-sm p-6 sm:p-8 lg:p-10" style={{ transform: 'rotate(0.5deg)' }}>
               <form onSubmit={handleSubmit} className="space-y-6">
+                {/* Invisible honeypot to capture spambots */}
+                <div style={{ display: 'none' }} aria-hidden="true">
+                  <label htmlFor="website-hp">Leave this empty</label>
+                  <input
+                    id="website-hp"
+                    type="text"
+                    name="honeypot"
+                    tabIndex={-1}
+                    autoComplete="off"
+                    value={formData.honeypot}
+                    onChange={(e) => setFormData({ ...formData, honeypot: e.target.value })}
+                  />
+                </div>
+
                 <div>
                   <label className="label-uppercase text-[#8B4513] block mb-2">{t.contact.form.name}</label>
                   <input
                     type="text"
                     value={formData.name}
+                    maxLength={100}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     className="w-full bg-transparent border-b border-[#8B4513]/30 text-[#2C2420] placeholder:text-[#5C3D2E]/50 py-2.5 font-sans text-[15px] focus:border-[#8B4513] focus:outline-none transition-colors"
                     placeholder="Your name"
@@ -115,6 +130,7 @@ export default function Contact() {
                   <input
                     type="email"
                     value={formData.email}
+                    maxLength={254}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     className="w-full bg-transparent border-b border-[#8B4513]/30 text-[#2C2420] placeholder:text-[#5C3D2E]/50 py-2.5 font-sans text-[15px] focus:border-[#8B4513] focus:outline-none transition-colors"
                     placeholder="your@email.com"
@@ -139,6 +155,7 @@ export default function Contact() {
                   <label className="label-uppercase text-[#8B4513] block mb-2">{t.contact.form.message}</label>
                   <textarea
                     value={formData.message}
+                    maxLength={3000}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     rows={4}
                     className="w-full bg-transparent border-b border-[#8B4513]/30 text-[#2C2420] placeholder:text-[#5C3D2E]/50 py-2.5 font-sans text-[15px] focus:border-[#8B4513] focus:outline-none transition-colors resize-none"
